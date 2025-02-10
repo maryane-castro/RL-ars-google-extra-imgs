@@ -86,8 +86,8 @@ class BoundingBoxEnv(gym.Env):
         ag_x, ag_y, ag_w, ag_h = denorm_bbox(self.agent_bbox)
 
         
-        cv2.rectangle(img, (gt_x, gt_y), (gt_x + gt_w, gt_y + gt_h), (0, 255, 0), 2)
-        cv2.rectangle(img, (ag_x, ag_y), (ag_x + ag_w, ag_y + ag_h), (255, 0, 0), 2)
+        cv2.rectangle(img, (gt_x, gt_y), (gt_x + gt_w, gt_y + gt_h), (0, 255, 0), 5)
+        cv2.rectangle(img, (ag_x, ag_y), (ag_x + ag_w, ag_y + ag_h), (255, 0, 0), 5)
 
         plt.imshow(img)
         plt.axis("off")
@@ -149,7 +149,7 @@ def on_close(event):
 
 
 
-image_path = 'cocoo/test/frame_000001_png_jpg.rf.54fa405435339b9180c07d10c3866f5d.jpg'  
+image_path = 'RL-in-images/Exemple_01.jpg'  
 image_data = encode_image(image_path)
 image = Image.open(io.BytesIO(base64.b64decode(image_data.split(",")[1])))
 image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
